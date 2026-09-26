@@ -1,6 +1,4 @@
-/* =========================================
-   ANIMATION DES IMAGES AU SCROLL
-   ========================================= */
+/* ANIMATION DES IMAGES AU SCROLL*/
 
 /*
     On récupère toutes les images des sections.
@@ -12,9 +10,6 @@ const images = document.querySelectorAll(".section img");
 /*
     IntersectionObserver permet de savoir quand
     un élément entre dans la partie visible de l'écran.
-
-    C'est plus simple et plus léger que de surveiller
-    manuellement chaque mouvement de la souris.
 */
 
 const observer = new IntersectionObserver((elements) => {
@@ -22,39 +17,27 @@ const observer = new IntersectionObserver((elements) => {
     elements.forEach((element) => {
 
         if (element.isIntersecting) {
-
             /*
                 Les sections "image-gauche" arrivent
                 depuis la gauche.
             */
-
             if (element.target.parentElement.classList.contains("image-gauche")) {
-
                 element.target.style.animation = "gauche 1s ease-out forwards";
-
             }
-
             /*
                 Les sections "image-droite" arrivent
                 depuis la droite.
             */
-
             else {
-
                 element.target.style.animation = "droite 1s ease-out forwards";
-
             }
-
             /*
                 On arrête d'observer l'image après
                 sa première apparition.
             */
-
             observer.unobserve(element.target);
         }
-
     });
-
 });
 
 
@@ -63,9 +46,7 @@ const observer = new IntersectionObserver((elements) => {
 */
 
 images.forEach((image) => {
-
     observer.observe(image);
-
 });
 
 

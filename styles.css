@@ -64,6 +64,13 @@ h3 {
     font-style: normal;
 }
 
+ul, li {
+    color: var(--texte);
+    font-family: "Yeseva One", serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
 p,
 legend {
     color: var(--texte);
@@ -180,7 +187,7 @@ legend {
     }
 
     to {
-        background-position: 480px 480px;
+        background-position: 580px 580px;
     }
 }
 
