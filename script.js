@@ -79,9 +79,9 @@ const feux = document.querySelector("#feux");
 /* Liste des GIF disponibles */
 
 const gifs = [
-    "feux1.gif",
-    "feux2.gif",
-    "feux3.gif"
+    "gifs/feux1.gif",
+    "gifs/feux2.gif",
+    "gifs/feux3.gif"
 ];
 
 

@@ -15,6 +15,8 @@
     --etoiles: url("img/etoiles.png");
 }
 
+/* barre de défilement verticale */
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -98,7 +100,7 @@ body {
     height: 100%;
     background: var(--loading-and-surprise);
     transform: translateX(-100%);
-    animation: chargement 3.5s ease-in-out forwards;
+    animation: chargement 4s ease-in-out forwards;
 }
 
 /* main stuff */
