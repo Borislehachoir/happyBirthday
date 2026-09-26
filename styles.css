@@ -12,6 +12,7 @@
 
     --texte: #fff1d0;
     --blanc: #fffafc;
+    --etoiles: url("img/etoiles.png");
 }
 
 ::-webkit-scrollbar {
@@ -26,7 +27,6 @@
     background: var(--scrollbar);
     border-radius: 4px;
     box-shadow: 0 0 10px var(--scrollbar);
-
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -51,7 +51,6 @@ body {
     font-family: 'Caudex', serif;
 }
 
-
 /* introduction */
 
 #intro {
@@ -61,12 +60,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--intro);
+    background-color: var(--intro);
     animation: disparition 1s ease-in-out 4s forwards;
 }
 
 .login {
     text-align: center;
+    background-color: inherit;
+    padding: 20px 30px;
+    border-radius: 20px;
 }
 
 /* around the world around the woooorld */
@@ -77,7 +79,6 @@ body {
     object-fit: contain;
     animation: rotation 3s linear infinite;
 }
-
 
 /* loading bar */
 
@@ -100,7 +101,6 @@ body {
     animation: chargement 3.5s ease-in-out forwards;
 }
 
-
 /* main stuff */
 
 #contenu {
@@ -116,7 +116,7 @@ body {
     align-items: center;
     text-align: left;
     padding: 20px;
-    background: var(--hero);
+    background-color: var(--hero);
 }
 
 .hero h1 {
@@ -127,6 +127,43 @@ body {
     font-size: 1.3rem;
 }
 
+/* starry sky*/
+
+#intro,
+.hero,
+.section {
+    background-image: var(--etoiles);
+    background-repeat: repeat;
+    background-size: 380px 380px;
+    background-position: 0 0;
+}
+
+/* animation starry sky */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    #intro,
+    .hero,
+    .section {
+        animation: derive-etoiles 200s linear infinite;
+    }
+
+    #intro {
+        animation:
+            disparition 1s ease-in-out 4s forwards,
+            derive-etoiles 120s linear infinite;
+    }
+}
+
+@keyframes derive-etoiles {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 480px 480px;
+    }
+}
 
 /* SECTIONS */
 
@@ -140,11 +177,11 @@ body {
 }
 
 .section:nth-child(odd) {
-    background: var(--section-odd);
+    background-color: var(--section-odd);
 }
 
 .section:nth-child(even) {
-    background: var(--section-even);
+    background-color: var(--section-even);
 }
 
 .texte {
@@ -152,8 +189,23 @@ body {
     text-align: left;
 }
 
-.section div {
+/*
+en gros on récup la couleur des fonds de bases pour faire en sorte que le txt reste lisible, malgré le fait qu'il y ait une pluie d'étoiles.
+*/
+
+.section div,
+.section h2 {
     max-width: 600px;
+    background-color: inherit;
+    padding: 20px 25px;
+    border-radius: 20px;
+}
+
+.hero h1,
+.hero p {
+    background-color: inherit;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
 .section img {
@@ -161,7 +213,6 @@ body {
     border-radius: 30px;
     box-shadow: 0 10px 30px #00000015;
 }
-
 
 /* boutons classicos */
 
@@ -184,8 +235,19 @@ button {
 button:hover {
     transform: scale(1.08);
 }
+ /*Liens */
+ a {
+  color:beige;
+  font-weight: bold;
+}
 
+a:hover {
+  color: hotpink;
+}
 
+a:visited {
+    color:red;
+}
 /* Surprise boutton */
 
 #surprise {
@@ -204,7 +266,6 @@ button:hover {
     font-size: 30px;
     box-shadow: 0 5px 20px #00000025;
 }
-
 
 /* Tooltip bouton surprise*/
 
@@ -229,7 +290,6 @@ button:hover {
     opacity: 1;
 }
 
-
 /* Fireworks :p */
 
 #feux {
@@ -243,7 +303,6 @@ button:hover {
     visibility: hidden;
 }
 
-
 #feux img {
     position: absolute;
 
@@ -254,15 +313,12 @@ button:hover {
     animation: apparition-feu 4s ease-in-out forwards;
 }
 
-
 #feux.visible {
     visibility: visible;
 }
 
-
 /*ANIMATIONS*/
 @keyframes apparition-feu {
-
     0% {
         opacity: 0;
         transform: scale(0.5);
@@ -281,11 +337,9 @@ button:hover {
         opacity: 0;
         transform: scale(1.1);
     }
-
 }
 
 @keyframes rotation {
-
     from {
         transform: rotate(0deg);
     }
@@ -293,11 +347,9 @@ button:hover {
     to {
         transform: rotate(360deg);
     }
-
 }
 
 @keyframes chargement {
-
     from {
         transform: translateX(-100%);
     }
@@ -305,25 +357,21 @@ button:hover {
     to {
         transform: translateX(0);
     }
-
 }
 
 @keyframes disparition {
-
     to {
         opacity: 0;
         visibility: hidden;
     }
-
 }
 
 /*
-    Animation simple pour les images qui
-    arrivent depuis la gauche ou la droite.
+Animation simple pour les images qui
+arrivent depuis la gauche ou la droite.
 */
 
 @keyframes gauche {
-
     from {
         opacity: 0;
         transform: translateX(-150px);
@@ -333,12 +381,9 @@ button:hover {
         opacity: 1;
         transform: translateX(0);
     }
-
 }
 
-
 @keyframes droite {
-
     from {
         opacity: 0;
         transform: translateX(150px);
@@ -348,14 +393,11 @@ button:hover {
         opacity: 1;
         transform: translateX(0);
     }
-
 }
-
 
 /* Media queries */
 
 @media (max-width: 700px) {
-
     .section {
         flex-direction: column;
         gap: 30px;
