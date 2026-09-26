@@ -1,6 +1,6 @@
 /* Variables communes*/
 
-@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Jim+Nightshade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Jim+Nightshade&family=Yeseva+One&display=swap');
 
 :root {
     --hero: #4b3b5e;
@@ -49,8 +49,25 @@ html {
 body {
     margin: 0;
     background: var(--blanc);
+}
+
+h1 {
+    max-width: 80%;
+}
+
+h1,
+h2,
+h3 {
     color: var(--texte);
-    font-family: 'Caudex', serif;
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p,
+legend {
+    color: var(--texte);
+    font-family: sans-serif;
 }
 
 /* introduction */
@@ -196,7 +213,8 @@ en gros on récup la couleur des fonds de bases pour faire en sorte que le txt r
 */
 
 .section div,
-.section h2 {
+.section h2,
+.section legend {
     max-width: 600px;
     background-color: inherit;
     padding: 20px 25px;
@@ -204,7 +222,9 @@ en gros on récup la couleur des fonds de bases pour faire en sorte que le txt r
 }
 
 .hero h1,
-.hero p {
+.hero h2,
+.hero p,
+.hero legend {
     background-color: inherit;
     padding: 10px 20px;
     border-radius: 20px;
@@ -237,19 +257,21 @@ button {
 button:hover {
     transform: scale(1.08);
 }
- /*Liens */
- a {
-  color:beige;
-  font-weight: bold;
+
+/*Liens */
+a {
+    color: beige;
+    font-weight: bold;
 }
 
 a:hover {
-  color: hotpink;
+    color: hotpink;
 }
 
 a:visited {
-    color:red;
+    color: red;
 }
+
 /* Surprise boutton */
 
 #surprise {
